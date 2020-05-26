@@ -1,0 +1,182 @@
+import $$ from 'dom7';
+import Framework7 from 'framework7/framework7.esm.bundle.js';
+
+// Import F7 Styles
+import 'framework7/css/framework7.bundle.css';
+
+// Import Icons and App Custom Styles
+import '../css/icons.css';
+import '../css/app.css';
+// Import Cordova APIs
+import cordovaApp from './cordova-app.js';
+// Import Routes
+import routes from './routes.js';
+
+var app = new Framework7({
+  root: '#app', // App root element
+  id: 'io.framework7.myapp', // App bundle ID
+  name: 'My App', // App name
+  theme: 'auto', // Automatic theme detection
+  // App root data
+  data: function () {
+    return {
+      user: {
+        firstName: 'John',
+        lastName: 'Doe',
+      },
+
+    };
+  },
+  // App root methods
+  methods: {
+    helloWorld: function () {
+      app.dialog.alert('Hello World!');
+    },
+  },
+  // App routes
+  routes: routes,
+  // Enable panel left visibility breakpoint
+  panel: {
+    leftBreakpoint: 960,
+  },
+
+
+  // Input settings
+  input: {
+    scrollIntoViewOnFocus: Framework7.device.cordova && !Framework7.device.electron,
+    scrollIntoViewCentered: Framework7.device.cordova && !Framework7.device.electron,
+  },
+  // Cordova Statusbar settings
+  statusbar: {
+    overlay: Framework7.device.cordova && Framework7.device.ios || 'auto',
+    iosOverlaysWebView: true,
+    androidOverlaysWebView: false,
+  },
+  on: {
+    init: function () {
+      var f7 = this;
+      if (f7.device.cordova) {
+        // Init cordova APIs (see cordova-app.js)
+        cordovaApp.init(f7);
+      }
+    },
+  },
+});
+
+// Login Screen Demo
+		
+		
+		$$('#my-login-screen .login-button').on('click', function () {
+  var username = $$('#my-login-screen [name="username"]').val();
+  var password = $$('#my-login-screen [name="password"]').val();
+
+  // Close login screen
+  
+ app.loginScreen.close('#my-login-screen');
+
+  // Alert username and password
+  
+ app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
+});
+
+
+$$(document).on('page:init', '.page[data-name="moja"]', function(e) {
+ 
+    $$('input[type="text"]').on('keyup change', () => {
+        var tabelaa = document.getElementById("myTable").value;
+       var str = document.getElementById("imie").value;
+var patt = new RegExp("[A-Z]{1}[a-z]+");
+var res = patt.test(str);
+      
+        if(res==true)
+            {
+     document.getElementById("myTable").style.backgroundColor="green";
+            }
+        else
+        {
+          document.getElementById("myTable").style.backgroundColor="red";
+        }
+});
+    $$('input[type="text"]').on('keyup change', () => {
+        var tabelaa = document.getElementById("myTable").value;
+       var str = document.getElementById("nazwisko").value;
+var patt = new RegExp("[A-Z]{1}[a-z]+");
+var res = patt.test(str);
+      
+        if(res==true)
+            {
+     document.getElementById("myTable").style.backgroundColor="green";
+            }
+        else
+        {
+          document.getElementById("myTable").style.backgroundColor="red";
+        }
+});
+    $$('input[type="text"]').on('keyup change', () => {
+        var tabelaa = document.getElementById("myTable").value;
+       var str = document.getElementById("kod").value;
+var patt = new RegExp("[0-9]{2}-[0-9]{3}");
+var res = patt.test(str);
+      
+        if(res==true)
+            {
+     document.getElementById("myTable").style.backgroundColor="green";
+            }
+        else
+        {
+          document.getElementById("myTable").style.backgroundColor="red";
+        }
+});
+    $$('input[type="text"]').on('keyup change', () => {
+        var tabelaa = document.getElementById("myTable").value;
+       
+	   var str = document.getElementById("miasto").value;
+var patt = new RegExp("[A-Z]{1}[a-z]+");
+var res = patt.test(str);
+      
+        if(res==true)
+            {
+     document.getElementById("myTable").style.backgroundColor="green";
+            }
+        else
+        {
+          document.getElementById("myTable").style.backgroundColor="red";
+        }
+});
+    $$('input[type="text"]').on('keyup change', () => {
+        var tabelaa = document.getElementById("myTable").value;
+     	var str = document.getElementById("email").value;
+
+var patt = new RegExp("[a-z]+@[a-z]+\.pl");
+var res = patt.test(str);
+      
+        if(res==true)
+            {
+     document.getElementById("myTable").style.backgroundColor="green";
+            }
+        else
+        {
+          document.getElementById("myTable").style.backgroundColor="red";
+        }
+});
+    $$('input[type="text"]').on('keyup change', () => {
+        var tabelaa = document.getElementById("myTable").value;
+       var str = document.getElementById("telefon").value;
+
+var patt = new RegExp("[0-9]{3}-[0-9]{3}-[0-9]{3}");
+var res = patt.test(str);
+      
+        if(res==true)
+            {
+     document.getElementById("myTable").style.backgroundColor="green";
+            }
+       
+		else
+			
+        {
+			document.getElementById("myTable").style.backgroundColor="red";
+        }
+});
+    
+	})
+
